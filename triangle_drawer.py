@@ -25,11 +25,12 @@ class TriangleDrawer:
     self.fill_hexagons(top_point, self.get_colors())
     del self.dctx  # destroy drawing context
     file_name = "/tmp/" + str(self.name) + ".png"
-    img.save(file_name)
+    flipped = img.transpose(Image.FLIP_TOP_BOTTOM)
+    flipped.save(file_name)
 
   def get_colors(self):
-    color1 = (random.randint(35,70),random.randint(35,70),random.randint(35,70))
-    color2 = (random.randint(175,210),random.randint(175,210),random.randint(175,210))
+    color1 = (random.randint(175,210),random.randint(175,210),random.randint(175,210))
+    color2 = (random.randint(35,70),random.randint(35,70),random.randint(35,70))
     return (color1, color2)
 
   def fill_hexagons(self, top_point, colors):
