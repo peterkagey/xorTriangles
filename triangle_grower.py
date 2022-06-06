@@ -1,11 +1,11 @@
 class TriangleGrower:
-  def __init__(self):
-    pass
+  def __init__(self, modulus = 2):
+    self.modulus = modulus
 
   def next_row(self, row):
     new_row = []
     def xor(i):
-      return row[i] ^ row[i+1]
+      return (row[i] + row[i+1]) % self.modulus
     return list(map(xor, range(len(row)-1)))
 
   def make_triangle(self, bottom_row):

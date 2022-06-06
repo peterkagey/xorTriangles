@@ -37,7 +37,10 @@ class TriangleDrawer:
     (x_t, y_t) = top_point
     for a in range(self.rows):
       for b in range(self.rows-a):
-        color = colors[self.tabl[a+b][b]]
+        if self.tabl[a+b][b] == 0:
+          color = colors[0]
+        else:
+          color = colors[1]
         x = x_t - self.s*(a-b)/2
         y = y_t + 0.866*self.s*(a+b)
         self.draw_hexagon((x, y), color)

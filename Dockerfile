@@ -1,9 +1,10 @@
-FROM public.ecr.aws/lambda/python:3.8
+FROM amazon/aws-lambda-python:3.8
 
 RUN pip install tweepy
 RUN pip install Pillow -t .
 
-COPY rows.json ./
+COPY rows2.json ./
+COPY rows3.json ./
 COPY seed_maker.py ./
 COPY triangle_grower.py ./
 COPY triangle_drawer.py ./
